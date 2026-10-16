@@ -3,7 +3,7 @@ import { useLanguage } from '../i18n/LanguageProvider'
 import { navItems } from './nav'
 
 /** Navegação inferior fixa, só em telas < md. */
-export function MobileDock({ active }: { active: string }) {
+export function MobileDock({ active, onSelect }: { active: string; onSelect: (id: string) => void }) {
   const { t } = useLanguage()
 
   return (
@@ -18,6 +18,7 @@ export function MobileDock({ active }: { active: string }) {
             <li key={id} className="flex-1">
               <a
                 href={`#${id}`}
+                onClick={() => onSelect(id)}
                 aria-current={isActive ? 'true' : undefined}
                 className={`relative isolate flex min-h-12 flex-col items-center justify-center gap-0.5 rounded-xl text-[10px] font-medium transition-colors ${
                   isActive ? 'text-on-accent' : 'text-muted'

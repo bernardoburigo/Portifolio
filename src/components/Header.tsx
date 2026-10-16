@@ -7,7 +7,7 @@ import { ThemeToggle } from './ThemeToggle'
 import { navItems } from './nav'
 
 /** Desktop: logo, links e controles. Mobile: só logo e controles (links ficam no dock). */
-export function Header({ active }: { active: string }) {
+export function Header({ active, onSelect }: { active: string; onSelect: (id: string) => void }) {
   const { t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
 
@@ -27,6 +27,7 @@ export function Header({ active }: { active: string }) {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <a
           href="#inicio"
+          onClick={() => onSelect('inicio')}
           className="flex items-center gap-2 font-mono text-sm font-semibold tracking-tight"
         >
           <span className="grid size-8 place-items-center rounded-lg bg-accent text-[11px] text-on-accent">
@@ -41,6 +42,7 @@ export function Header({ active }: { active: string }) {
               <li key={id}>
                 <a
                   href={`#${id}`}
+                  onClick={() => onSelect(id)}
                   aria-current={active === id ? 'true' : undefined}
                   className={`relative isolate block rounded-full px-3.5 py-1.5 text-sm transition-colors ${
                     active === id ? 'text-on-accent' : 'text-muted hover:text-fg'

@@ -1,4 +1,4 @@
-import { ArrowRight, Languages, Users } from 'lucide-react'
+import { ArrowRight, Clock, Languages, Users } from 'lucide-react'
 import { FaLinkedin } from 'react-icons/fa6'
 import avatar320 from '../assets/avatar-320.webp'
 import avatar640 from '../assets/avatar-640.webp'
@@ -11,6 +11,7 @@ import { yearsSince } from '../lib/date'
 export function Hero() {
   const { t } = useLanguage()
   const years = yearsSince(profile.careerStart)
+  const [yearsBefore, yearsAfter] = t.hero.yearsValue.split('{n}')
 
   return (
     <section id="inicio" aria-labelledby="hero-name" className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -67,29 +68,40 @@ export function Hero() {
       </BentoCard>
 
       <BentoCard className="md:col-span-2 lg:col-span-1" delay={0.05}>
-        <div className="flex h-full flex-col justify-between gap-4">
-          <span className="relative flex size-3">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent-glow opacity-60" />
-            <span className="relative inline-flex size-3 rounded-full bg-accent-glow" />
-          </span>
-          <div>
+        <div className="flex h-full flex-col justify-center">
+          <div className="flex items-center gap-2.5">
+            <span aria-hidden className="relative flex size-3 shrink-0">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent-glow opacity-60" />
+              <span className="relative inline-flex size-3 rounded-full bg-accent-glow" />
+            </span>
             <p className="text-lg font-semibold">{t.hero.available}</p>
-            <p className="mt-1 text-sm text-muted">{t.hero.availableDetail}</p>
           </div>
+          <p className="mt-1 text-sm text-muted">{t.hero.availableDetail}</p>
         </div>
       </BentoCard>
 
       <BentoCard delay={0.1}>
-        <p className="font-mono text-5xl font-semibold tracking-tight text-accent">{years}+</p>
-        <p className="mt-2 text-sm text-muted">{t.hero.yearsLabel}</p>
+        <div className="flex h-full flex-col justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <Clock size={20} className="shrink-0 text-accent" aria-hidden />
+            <p className="font-mono text-2xl font-semibold">
+              {yearsBefore}
+              <span className="text-accent">{years}</span>
+              {yearsAfter}
+            </p>
+          </div>
+          <p className="text-sm text-muted">{t.hero.yearsLabel}</p>
+        </div>
       </BentoCard>
 
       <BentoCard delay={0.15}>
-        <div className="flex items-center gap-2">
-          <Languages size={20} className="text-accent" aria-hidden />
-          <p className="font-mono text-2xl font-semibold">{t.hero.languagesValue}</p>
+        <div className="flex h-full flex-col justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <Languages size={20} className="shrink-0 text-accent" aria-hidden />
+            <p className="font-mono text-2xl font-semibold">{t.hero.languagesValue}</p>
+          </div>
+          <p className="text-sm text-muted">{t.hero.languagesLabel}</p>
         </div>
-        <p className="mt-3 text-sm text-muted">{t.hero.languagesLabel}</p>
       </BentoCard>
 
       <BentoCard className="md:col-span-2" delay={0.2}>

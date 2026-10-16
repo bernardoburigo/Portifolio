@@ -8,6 +8,7 @@ import {
   SiNodedotjs,
   SiPostgresql,
   SiReact,
+  SiSpringboot,
   SiTypescript,
 } from 'react-icons/si'
 
@@ -18,6 +19,7 @@ const icons: Record<string, IconType> = {
   NestJS: SiNestjs,
   React: SiReact,
   'React Native': SiReact,
+  'Spring Boot': SiSpringboot,
   Ionic: SiIonic,
   Capacitor: SiCapacitor,
   PostgreSQL: SiPostgresql,

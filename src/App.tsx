@@ -12,7 +12,7 @@ import { Projects } from './sections/Projects'
 
 export default function App() {
   const { t } = useLanguage()
-  const active = useActiveSection(sectionIds)
+  const { active, select } = useActiveSection(sectionIds)
 
   return (
     <>
@@ -23,7 +23,7 @@ export default function App() {
         {t.ui.skip}
       </a>
 
-      <Header active={active} />
+      <Header active={active} onSelect={select} />
 
       <main id="conteudo" className="mx-auto max-w-6xl space-y-4 px-4 pt-4 pb-4 sm:px-6">
         <Hero />
@@ -36,7 +36,7 @@ export default function App() {
       <Footer />
       {/* espaço para o dock no mobile */}
       <div aria-hidden className="h-24 md:hidden" />
-      <MobileDock active={active} />
+      <MobileDock active={active} onSelect={select} />
     </>
   )
 }

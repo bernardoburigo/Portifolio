@@ -146,6 +146,12 @@
     }
   }
 
+  /* Tracejado "correndo" nas ilustrações (fluxo de água/dados) */
+  .flow-line {
+    stroke-dasharray: 4 4;
+    animation: flow 1.6s linear infinite;
+  }
+
   .eyebrow {
     font-family: var(--font-mono);
     font-size: 0.75rem;
@@ -155,9 +161,18 @@
   }
 }
 
+@keyframes flow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .flow-line {
+    animation: none;
   }
   .bento::before,
   .bento::after {

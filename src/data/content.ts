@@ -47,6 +47,8 @@ export interface Content {
     available: string
     availableDetail: string
     ctaContact: string
+    /** {n} é substituído pelo número de anos. */
+    yearsValue: string
     yearsLabel: string
     languagesValue: string
     languagesLabel: string
@@ -70,13 +72,14 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/bernardo-goulart-burigo',
   /** Deixe vazio para ocultar o link do GitHub. */
   github: '',
-  /** Início da carreira, usado para calcular "X+ anos de experiência". */
+  /** Início da carreira, usado para calcular "Mais de X anos". */
   careerStart: '2023-09',
   stack: [
     'TypeScript',
     'Angular',
     'Node.js',
     'NestJS',
+    'Spring Boot',
     'React',
     'React Native',
     'Ionic',
@@ -89,7 +92,7 @@ export const profile = {
 
 const periods = {
   fullStack: { start: '2026-03', end: null },
-  scholarship: { start: '2025-10', end: null },
+  scholarship: { start: '2025-10', end: '2026-02' },
   labAssistant: { start: '2024-09', end: '2025-09' },
   researcher: { start: '2023-09', end: '2024-08' },
 } satisfies Record<string, Period>
@@ -118,7 +121,8 @@ export const content: Record<Lang, Content> = {
       available: 'Aberto a propostas',
       availableDetail: 'Novos desafios que combinem impacto técnico e crescimento em equipe.',
       ctaContact: 'Entrar em contato',
-      yearsLabel: 'anos desenvolvendo software',
+      yearsValue: 'Mais de {n}',
+      yearsLabel: 'anos desenvolvendo soluções',
       languagesValue: 'PT · EN',
       languagesLabel: 'Português nativo, inglês fluente',
       leadershipTitle: 'Liderança de equipes',
@@ -175,24 +179,29 @@ export const content: Record<Lang, Content> = {
           course: 'Inglês: fluência completa',
           period: '2015 – 2019',
         },
+        {
+          institution: 'Colégio Marista Criciúma',
+          course: 'Ensino Fundamental e Médio',
+          period: '2010 – 2021',
+        },
       ],
     },
     projects: {
       title: 'Projetos',
-      subtitle: 'Pesquisa acadêmica e trabalhos profissionais (sem citar clientes).',
+      subtitle: 'Pesquisas acadêmicas e trabalhos profissionais.',
       items: [
         {
-          kind: 'Pesquisa',
-          title: 'Controle de variáveis de ambiente com Redes de Sensores Sem Fio',
+          kind: 'Pesquisa - TCC',
+          title: 'Sistema de Monitoramento de Fluxo de Água',
           period: '2023 – 2024',
           description:
-            'Pesquisa sobre monitoramento e controle de variáveis de ambiente usando redes de sensores sem fio. Projeto concluído e apresentado na Semana de Ciência e Tecnologia 2024 da Unesc.',
-          tags: ['RSSF', 'IoT', 'Pesquisa aplicada'],
+            'Trabalho de Conclusão de Curso - Monitoramento de fluxo de água em condomínios residenciais por meio de sensores, microcontroladores e infraestrutura IoT, com acesso via web e app mobile.',
+          tags: ['React Native', 'Spring Boot', 'IoT', 'Pesquisa aplicada'],
           featured: true,
         },
         {
           kind: 'Profissional',
-          title: 'Gestão de escalas com app mobile',
+          title: 'Gestão de Escalas com APP Mobile',
           period: '2026',
           description:
             'Plataforma web de gestão de escalas e equipes, com aplicativo mobile para os profissionais.',
@@ -200,19 +209,20 @@ export const content: Record<Lang, Content> = {
         },
         {
           kind: 'Profissional',
-          title: 'Medições e recibos para obras',
+          title: 'Gestão Jurídica com IA e Jurimetria',
           period: '2026',
           description:
-            'Sistema para registrar medições de obras, executar itens e gerar recibos.',
-          tags: ['Angular', 'TypeScript'],
+            'Sistema voltado a escritórios de advocacia com integração ao Jusbrasil e assistente de IA.',
+          tags: ['Angular', 'NestJS', 'PostgreSQL'],
         },
         {
-          kind: 'Profissional',
-          title: 'Backoffice de tarefas e monitoramento',
-          period: '2026',
+          kind: 'Pesquisa',
+          title: 'Controle de Variáveis de Ambiente com Redes de Sensores Sem Fio',
+          period: '2023 – 2024',
           description:
-            'Painel interno para organizar tarefas por espaços de trabalho e monitorar operações.',
-          tags: ['Angular', 'Node.js'],
+            'Pesquisa sobre monitoramento e controle de variáveis de ambiente usando redes de sensores sem fio. Projeto concluído e apresentado na Semana de Ciência e Tecnologia 2024 da Unesc.',
+          tags: ['RSSF', 'IoT', 'Pesquisa aplicada'],
+          featured: true,
         },
       ],
     },
@@ -247,7 +257,8 @@ export const content: Record<Lang, Content> = {
       available: 'Open to opportunities',
       availableDetail: 'New challenges that combine technical impact and team growth.',
       ctaContact: 'Get in touch',
-      yearsLabel: 'years building software',
+      yearsValue: 'Over {n}',
+      yearsLabel: 'years building solutions',
       languagesValue: 'PT · EN',
       languagesLabel: 'Native Portuguese, fluent English',
       leadershipTitle: 'Team leadership',
@@ -303,24 +314,29 @@ export const content: Record<Lang, Content> = {
           course: 'English: full proficiency',
           period: '2015 – 2019',
         },
+        {
+          institution: 'Colégio Marista Criciúma',
+          course: 'Elementary and High School',
+          period: '2010 – 2021',
+        },
       ],
     },
     projects: {
       title: 'Projects',
-      subtitle: 'Academic research and professional work (clients not named).',
+      subtitle: 'Academic research and professional work.',
       items: [
         {
-          kind: 'Research',
-          title: 'Environmental variable control with Wireless Sensor Networks',
+          kind: 'Research - Thesis',
+          title: 'Water Flow Monitoring System',
           period: '2023 – 2024',
           description:
-            "Research on monitoring and controlling environmental variables using wireless sensor networks. Completed and presented at Unesc's 2024 Science and Technology Week.",
-          tags: ['WSN', 'IoT', 'Applied research'],
+            'Undergraduate thesis - Water flow monitoring in residential condominiums using sensors, microcontrollers and IoT infrastructure, with web and mobile app access.',
+          tags: ['React Native', 'Spring Boot', 'IoT', 'Applied research'],
           featured: true,
         },
         {
           kind: 'Professional',
-          title: 'Shift scheduling with mobile app',
+          title: 'Shift Scheduling with Mobile App',
           period: '2026',
           description:
             'Web platform for managing shifts and teams, with a mobile app for the professionals.',
@@ -328,17 +344,19 @@ export const content: Record<Lang, Content> = {
         },
         {
           kind: 'Professional',
-          title: 'Construction measurements and receipts',
+          title: 'Legal Management with AI and Jurimetrics',
           period: '2026',
-          description: 'System to record construction measurements, execute items and generate receipts.',
-          tags: ['Angular', 'TypeScript'],
+          description: 'System for law firms with Jusbrasil integration and an AI assistant.',
+          tags: ['Angular', 'NestJS', 'PostgreSQL'],
         },
         {
-          kind: 'Professional',
-          title: 'Task and monitoring back office',
-          period: '2026',
-          description: 'Internal dashboard to organize tasks by workspace and monitor operations.',
-          tags: ['Angular', 'Node.js'],
+          kind: 'Research',
+          title: 'Environmental Variable Control with Wireless Sensor Networks',
+          period: '2023 – 2024',
+          description:
+            "Research on monitoring and controlling environmental variables using wireless sensor networks. Completed and presented at Unesc's 2024 Science and Technology Week.",
+          tags: ['WSN', 'IoT', 'Applied research'],
+          featured: true,
         },
       ],
     },
