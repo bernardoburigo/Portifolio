@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Bernardo Búrigo · Desenvolvedor Full Stack</title>
+    <meta name="description" content="Bernardo Goulart Búrigo, Desenvolvedor Full Stack com Angular, TypeScript, Node.js e React. Currículo e projetos." />
+    <meta name="author" content="Bernardo Goulart Búrigo" />
+    <meta name="theme-color" content="#F4F7F8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0F1A21" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bernardo Búrigo · Desenvolvedor Full Stack" />
+    <meta property="og:description" content="Angular, TypeScript, Node.js e React. Currículo e projetos." />
+    <meta property="og:image" content="/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Aplica o tema antes da pintura para evitar flash -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme')
+          if (t !== 'light' && t !== 'dark') {
+            t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          }
+          if (t === 'dark') document.documentElement.classList.add('dark')
+          var l = localStorage.getItem('lang')
+          if (l === 'en' || (!l && !/^pt/i.test(navigator.language))) document.documentElement.lang = 'en'
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

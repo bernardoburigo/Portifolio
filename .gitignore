@@ -1,0 +1,9 @@
+node_modules
+dist
+*.local
+.vercel
+.DS_Store
+
+# Arquivos pessoais originais (a foto original contém GPS no EXIF)
+IMG_*.jpg
+Profile.pdf
