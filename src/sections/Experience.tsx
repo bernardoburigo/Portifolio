@@ -1,5 +1,6 @@
 import { GraduationCap, History } from 'lucide-react'
 import { BentoCard } from '../components/BentoCard'
+import { Section } from '../components/Section'
 import { PulseDot } from '../components/PulseDot'
 import { SectionHeading } from '../components/SectionHeading'
 import { useLanguage } from '../i18n/LanguageProvider'
@@ -9,7 +10,7 @@ export function Experience() {
   const { t, lang } = useLanguage()
 
   return (
-    <section id="experiencia" aria-labelledby="exp-title">
+    <Section id="experiencia" labelledBy="exp-title">
       <SectionHeading id="exp-title" {...t.sections.experience} />
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -66,6 +67,6 @@ export function Experience() {
           </ul>
         </BentoCard>
       </div>
-    </section>
+    </Section>
   )
 }

@@ -1,4 +1,5 @@
 import { BentoCard } from '../components/BentoCard'
+import { Section } from '../components/Section'
 import { SectionHeading } from '../components/SectionHeading'
 import { Tag } from '../components/Tag'
 import { TechIcon } from '../components/TechIcon'
@@ -85,7 +86,7 @@ export function Projects() {
   const [featured, ...others] = t.projects.items
 
   return (
-    <section id="projetos" aria-labelledby="projects-title">
+    <Section id="projetos" labelledBy="projects-title">
       <SectionHeading id="projects-title" title={t.projects.title} subtitle={t.projects.subtitle} />
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -110,6 +111,6 @@ export function Projects() {
           </BentoCard>
         ))}
       </div>
-    </section>
+    </Section>
   )
 }

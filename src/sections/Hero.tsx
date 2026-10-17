@@ -5,6 +5,7 @@ import avatar640 from '../assets/avatar-640.webp'
 import avatarJpg from '../assets/avatar-320.jpg'
 import { BentoCard } from '../components/BentoCard'
 import { PulseDot } from '../components/PulseDot'
+import { Section } from '../components/Section'
 import { profile } from '../data/content'
 import { useLanguage } from '../i18n/LanguageProvider'
 import { yearsSince } from '../lib/date'
@@ -15,7 +16,7 @@ export function Hero() {
   const [yearsBefore, yearsAfter] = t.hero.yearsValue.split('{n}')
 
   return (
-    <section id="inicio" aria-labelledby="hero-name" className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <Section id="inicio" labelledBy="hero-name" className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
       <BentoCard className="md:col-span-2 lg:col-span-3" tilt={false} featured>
         <div className="flex h-full flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:text-left lg:gap-8">
           <picture className="shrink-0">
@@ -113,6 +114,6 @@ export function Hero() {
           </div>
         </div>
       </BentoCard>
-    </section>
+    </Section>
   )
 }

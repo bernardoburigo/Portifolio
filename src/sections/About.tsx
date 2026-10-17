@@ -1,5 +1,6 @@
 import { Layers, UserRound } from 'lucide-react'
 import { BentoCard } from '../components/BentoCard'
+import { Section } from '../components/Section'
 import { SectionHeading } from '../components/SectionHeading'
 import { TechIcon } from '../components/TechIcon'
 import { profile } from '../data/content'
@@ -9,7 +10,7 @@ export function About() {
   const { t } = useLanguage()
 
   return (
-    <section id="sobre" aria-labelledby="about-title">
+    <Section id="sobre" labelledBy="about-title">
       <SectionHeading id="about-title" {...t.sections.about} />
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -45,6 +46,6 @@ export function About() {
           </ul>
         </BentoCard>
       </div>
-    </section>
+    </Section>
   )
 }

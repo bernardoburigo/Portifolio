@@ -1,5 +1,6 @@
 import { Header } from './components/Header'
 import { MobileDock } from './components/MobileDock'
+import { ActiveSectionContext } from './components/Section'
 import { sectionIds } from './components/nav'
 import { useActiveSection } from './hooks/useActiveSection'
 import { useLanguage } from './i18n/LanguageProvider'
@@ -25,13 +26,15 @@ export default function App() {
 
       <Header active={active} onSelect={select} />
 
-      <main id="conteudo" className="mx-auto max-w-6xl space-y-4 px-4 pt-4 pb-4 sm:px-6">
-        <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Contact />
-      </main>
+      <ActiveSectionContext.Provider value={active}>
+        <main id="conteudo" className="mx-auto max-w-6xl space-y-4 px-4 pt-4 pb-4 sm:px-6">
+          <Hero />
+          <About />
+          <Experience />
+          <Projects />
+          <Contact />
+        </main>
+      </ActiveSectionContext.Provider>
 
       <Footer />
       {/* espaço para o dock no mobile */}
