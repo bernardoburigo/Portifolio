@@ -1,4 +1,5 @@
 import { BentoCard } from '../components/BentoCard'
+import { SectionHeading } from '../components/SectionHeading'
 import { Tag } from '../components/Tag'
 import { TechIcon } from '../components/TechIcon'
 import type { Project } from '../data/content'
@@ -85,13 +86,10 @@ export function Projects() {
 
   return (
     <section id="projetos" aria-labelledby="projects-title">
-      <div className="mb-4 flex flex-col gap-1 px-1 pt-6 sm:flex-row sm:items-end sm:justify-between">
-        <h2 id="projects-title" className="text-2xl font-semibold tracking-tight">{t.projects.title}</h2>
-        <p className="text-sm text-muted">{t.projects.subtitle}</p>
-      </div>
+      <SectionHeading id="projects-title" title={t.projects.title} subtitle={t.projects.subtitle} />
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <BentoCard className="md:col-span-2 lg:row-span-2">
+        <BentoCard className="md:col-span-2 lg:row-span-2" featured>
           <div className="flex h-full flex-col gap-6">
             <div className="flex justify-center rounded-xl border border-line bg-bg/60 py-6">
               <WaterFlowChart />

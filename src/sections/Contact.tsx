@@ -2,6 +2,7 @@ import { Mail, Send } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa6'
 import { BentoCard } from '../components/BentoCard'
 import { CopyEmailButton } from '../components/CopyEmailButton'
+import { SectionHeading } from '../components/SectionHeading'
 import { profile } from '../data/content'
 import { useLanguage } from '../i18n/LanguageProvider'
 
@@ -12,11 +13,13 @@ export function Contact() {
   const { t } = useLanguage()
 
   return (
-    <section id="contato" aria-labelledby="contact-title" className="pt-6">
-      <BentoCard tilt={false}>
+    <section id="contato" aria-labelledby="contact-title">
+      <SectionHeading id="contact-title" {...t.sections.contact} />
+
+      <BentoCard tilt={false} featured>
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-md">
-            <h2 id="contact-title" className="text-3xl font-semibold tracking-tight">{t.contact.title}</h2>
+            <h3 className="text-3xl font-semibold tracking-tight">{t.contact.title}</h3>
             <p className="mt-2 text-muted">{t.contact.text}</p>
           </div>
 

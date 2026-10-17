@@ -55,6 +55,8 @@ export interface Content {
     leadershipTitle: string
     leadershipText: string
   }
+  /** Títulos de seção (título à esquerda, subtítulo à direita). */
+  sections: Record<'about' | 'experience' | 'contact', { title: string; subtitle: string }>
   about: { title: string; paragraphs: string[] }
   stack: { title: string }
   experience: { title: string; roles: Role[] }
@@ -128,8 +130,13 @@ export const content: Record<Lang, Content> = {
       leadershipTitle: 'Liderança de equipes',
       leadershipText: 'Diálogo aberto, transparência e colaboração como base do trabalho em time.',
     },
+    sections: {
+      about: { title: 'Sobre', subtitle: 'Um pouco sobre mim e minha stack.' },
+      experience: { title: 'Experiência', subtitle: 'Por onde passei e o que estudei.' },
+      contact: { title: 'Contato', subtitle: 'Vamos construir algo juntos.' },
+    },
     about: {
-      title: 'Sobre mim',
+      title: 'Quem sou?',
       paragraphs: [
         'Sou Desenvolvedor Full Stack especializado em soluções de software para mercados reais. Trabalho com TypeScript, Node.js, Angular, React e React Native, construindo aplicações robustas e escaláveis.',
         'Além da parte técnica, tenho experiência sólida em liderança de equipes. Acredito que organização pessoal e profissional, com clareza nas decisões e nas ações, é a base para entregar produtos de excelência.',
@@ -137,7 +144,7 @@ export const content: Record<Lang, Content> = {
     },
     stack: { title: 'Stack' },
     experience: {
-      title: 'Experiência',
+      title: 'Timeline',
       roles: [
         {
           title: 'Desenvolvedor Full Stack',
@@ -264,8 +271,13 @@ export const content: Record<Lang, Content> = {
       leadershipTitle: 'Team leadership',
       leadershipText: 'Open dialogue, transparency and collaboration as the foundation of teamwork.',
     },
+    sections: {
+      about: { title: 'About', subtitle: 'A little about me and my stack.' },
+      experience: { title: 'Experience', subtitle: "Where I've been and what I've studied." },
+      contact: { title: 'Contact', subtitle: "Let's build something together." },
+    },
     about: {
-      title: 'About me',
+      title: 'Who am I?',
       paragraphs: [
         "I'm a Full Stack Developer specialized in software solutions for real-world markets. I work with TypeScript, Node.js, Angular, React and React Native, building robust and scalable applications.",
         'Beyond the technical side, I have solid experience leading teams. I believe that personal and professional organization, with clear decisions and actions, is the foundation for delivering excellent products.',
@@ -273,7 +285,7 @@ export const content: Record<Lang, Content> = {
     },
     stack: { title: 'Stack' },
     experience: {
-      title: 'Experience',
+      title: 'Timeline',
       roles: [
         {
           title: 'Full Stack Developer',

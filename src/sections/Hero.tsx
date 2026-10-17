@@ -4,6 +4,7 @@ import avatar320 from '../assets/avatar-320.webp'
 import avatar640 from '../assets/avatar-640.webp'
 import avatarJpg from '../assets/avatar-320.jpg'
 import { BentoCard } from '../components/BentoCard'
+import { PulseDot } from '../components/PulseDot'
 import { profile } from '../data/content'
 import { useLanguage } from '../i18n/LanguageProvider'
 import { yearsSince } from '../lib/date'
@@ -15,7 +16,7 @@ export function Hero() {
 
   return (
     <section id="inicio" aria-labelledby="hero-name" className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-      <BentoCard className="md:col-span-2 lg:col-span-3" tilt={false}>
+      <BentoCard className="md:col-span-2 lg:col-span-3" tilt={false} featured>
         <div className="flex h-full flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:text-left lg:gap-8">
           <picture className="shrink-0">
             <source type="image/webp" srcSet={`${avatar320} 320w, ${avatar640} 640w`} sizes="(min-width: 1024px) 160px, 128px" />
@@ -70,10 +71,7 @@ export function Hero() {
       <BentoCard className="md:col-span-2 lg:col-span-1" delay={0.05}>
         <div className="flex h-full flex-col justify-center">
           <div className="flex items-center gap-2.5">
-            <span aria-hidden className="relative flex size-3 shrink-0">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent-glow opacity-60" />
-              <span className="relative inline-flex size-3 rounded-full bg-accent-glow" />
-            </span>
+            <PulseDot />
             <p className="text-lg font-semibold">{t.hero.available}</p>
           </div>
           <p className="mt-1 text-sm text-muted">{t.hero.availableDetail}</p>

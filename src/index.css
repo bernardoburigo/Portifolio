@@ -136,9 +136,23 @@
     mask-composite: exclude;
   }
 
+  /* Card principal de cada seção */
+  .bento-featured {
+    border-color: color-mix(in srgb, var(--accent-glow) 75%, transparent);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--accent-glow) 20%, transparent),
+      0 0 36px -10px color-mix(in srgb, var(--accent-glow) 45%, transparent);
+  }
+
   @media (hover: hover) and (pointer: fine) {
     .bento:hover {
       box-shadow: 0 18px 40px -24px color-mix(in srgb, var(--accent-glow) 45%, transparent);
+    }
+    .bento-featured:hover {
+      box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--accent-glow) 20%, transparent),
+        0 0 36px -10px color-mix(in srgb, var(--accent-glow) 45%, transparent),
+        0 18px 40px -24px color-mix(in srgb, var(--accent-glow) 45%, transparent);
     }
     .bento:hover::before,
     .bento:hover::after {

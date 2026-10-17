@@ -8,11 +8,13 @@ interface BentoCardProps {
   /** Atraso do reveal, em segundos. */
   delay?: number
   tilt?: boolean
+  /** Card principal da seção: borda teal + brilho. */
+  featured?: boolean
 }
 
 const spring = { stiffness: 180, damping: 18, mass: 0.6 }
 
-export function BentoCard({ children, className = '', delay = 0, tilt = true }: BentoCardProps) {
+export function BentoCard({ children, className = '', delay = 0, tilt = true, featured = false }: BentoCardProps) {
   const interactive = useFinePointerMotion()
   const reduceMotion = useReducedMotion()
   const rotateX = useSpring(0, spring)
@@ -41,7 +43,7 @@ export function BentoCard({ children, className = '', delay = 0, tilt = true }: 
 
   return (
     <motion.div
-      className={`bento p-5 sm:p-6 ${className}`}
+      className={`bento p-5 sm:p-6 ${featured ? 'bento-featured' : ''} ${className}`}
       style={{ rotateX, rotateY, transformPerspective: 1000 }}
       initial={reduceMotion ? false : { opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
